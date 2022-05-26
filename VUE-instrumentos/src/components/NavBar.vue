@@ -13,17 +13,11 @@
                         <a class="nav-link active" aria-current="page" href="/"> Home </a>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/destino" class="nav-link">Dónde Estamos</router-link>
+                        <router-link to="/dondeEstamos" class="nav-link">Dónde Estamos</router-link>
                     </li>
                       <li class="nav-item">
-                        <router-link to="/destino" class="nav-link"> Productos </router-link>
+                        <router-link to="/productos" class="nav-link"> Productos </router-link>
                     </li>
-                    <!-- <li class="nav-item">
-                        <router-link to="/formulario" class="nav-link">Formulario</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/formulariopost" class="nav-link">Formulario Post</router-link>
-                    </li> -->
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -33,3 +27,9 @@
         </div>
     </nav>
 </template>
+
+<script>
+export default {};
+</script>
+
+<style lang=""></style>

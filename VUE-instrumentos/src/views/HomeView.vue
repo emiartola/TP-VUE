@@ -1,38 +1,19 @@
 <template>
-  <div class="card-group">
-    <div v-for="instrumento in instrumentosData" :key="instrumento.id" style="margin:15px">
-      <instrumento-item v-bind:instrumentoParam="instrumento"></instrumento-item>
-    </div>
-  </div> 
-</template> 
+
+  <div style="margin-top:50px">
+    <b-jumbotron fluid bg-variant="dark" header="Musical Hendrix" lead="Te damos la bienvenida" text-variant="white">
+      <p>
+        Musical Hendrix es una tienda de instrumentos musicales con ya más de 15
+        años de experiencia. Tenemos el conocimiento y la capacidad como para
+        informarte acerca de las mejores elecciones para tu compra musical.
+      </p>
+      <b-button variant="primary" href="/productosItem">Más info</b-button>
+    </b-jumbotron>
+  </div>
+</template>
 
 <script>
-
-// @ is an alias to /src
-import InstrumentoItemVue from '@/components/InstrumentoItem.vue';
-
-export default {
-  name: "HomeView",
-  components: {
-    "instrumento-item": InstrumentoItemVue
-  },
-  mounted() {
-    this.getInstrumentos();
-  },
-  data() {
-    return {
-      instrumentosData: []
-    };
-  },
-  methods: {
-    async getInstrumentos() {
-      const res = await fetch(
-        "http://localhost:8080/instrumentos"
-      );
-      const resJson = await res.json();
-      console.log(resJson);
-      this.instrumentosData = resJson;
-    }
-  }
-};
 </script>
+
+
+
