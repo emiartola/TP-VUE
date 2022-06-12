@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import InstrumentoComponent from "@/components/InstrumentoComponent.vue";
 
 export default {

@@ -1,61 +1,34 @@
 <template>
-    <b-container fluid class="mt-4">
-      <b-row>
-        <b-col>
-          <b-img :src="'../assets/images/' + instrumentoEncontrado.imagen" class="d-block mx-auto sizeImg"></b-img>
-          <p class="title">Descripción:</p>
-          <p class="descripcion">{{ instrumentoEncontrado.descripcion }}</p>
-        </b-col>
-        <b-col lg="0">
-            <div class="verticalLine d-none d-lg-block"></div>
-        </b-col>
-        <b-col lg="4">
-          <b-row>
-            <b-col>
-              <span>{{ instrumentoEncontrado.cantidadVendida }} vendidos</span>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <p class="instrumento">{{ instrumentoEncontrado.instrumento }}</p>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <p>{{ instrumentoEncontrado.precio }}</p>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <p class="title">Marca: {{ instrumentoEncontrado.marca }}</p>
-              <p class="title">Modelo: {{ instrumentoEncontrado.modelo }}</p>
-            </b-col>
-          </b-row>
-          <b-row class="mt-4">
-            <b-col>
-              <span v-if="instrumentoEncontrado.costoEnvio == 'G'" class="gratis">
-                <b-card-img
-                  src="../assets/images/camion.png"
-                  style="max-width: 35px;"
-                ></b-card-img>
-                Envío gratis
-              </span>
-              <span v-else class="costoEnvio"
-                >Costo de envío al interior de Argentina:
-                {{ instrumentoEncontrado.costoEnvio  }}</span
-              >
-            </b-col>
-          </b-row>
-          
-        </b-col>
-        <b-col lg="1">
-            <div class="verticalLine d-none d-lg-block"></div>
-        </b-col>
-      </b-row>
-    </b-container>
+  <div class="container-fluid d-flex container border">
+    <div class="row">
+      <div class="col-lg-8">
+        <b-img :src="'../assets/images/' + instrumentoEncontrado.imagen" style="max-width:50%, max-height= 50%"></b-img>
+        <div>
+          <p> Descripción : </p>
+          <p>{{ instrumentoEncontrado?.descripcion }}</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-3" >
+        <p>{{ instrumentoEncontrado?.cantidadVendida }} vendidos </p>
+        <h2><b>{{ instrumentoEncontrado?.instrumento }}</b></h2>
+        <h5>Marca : {{ instrumentoEncontrado?.marca }}</h5>
+        <h5>Modelo : {{ instrumentoEncontrado?.modelo }}</h5>
+        <h2><b> ${{ instrumentoEncontrado?.precio }}</b></h2>
+        Costo Envío:
+        <span v-if="instrumentoEncontrado.costoEnvio == 'G'" style="color:green; font-weight: bold;">
+          Gratis
+        </span>
+        <span v-else style="color: orange">
+          $ {{ instrumentoEncontrado.costoEnvio }}
+        </span>
+      </div>
+      <b-button variant="primary" class="btn btn-primary" href="/productos"> Volver </b-button>
+    </div>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "DetalleInstrumento",
   components: {},
@@ -81,33 +54,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.title{
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.descripcion{
-  font-size: 13px;
-}
-
-.instrumento {
-  font-size: 24px;
-  font-weight: bold;
-}
-.verticalLine {
-  border-left: 1px solid rgba(134, 126, 126, 0.26);
-  height: 100%;
-}
-.gratis {
-  color: #00bd4f;
-}
-
-.costoEnvio {
-  color: #e94d05;
-}
-.sizeImg {
-  min-width: 300px;
-  max-width: 300px;
-}
-</style>
